@@ -30,8 +30,16 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  role_id                :integer
-#  phone                  :string
-#  address                :string
+#  phone                  :string           default("")
+#  address                :string           default("")
+#
+# Indexes
+#
+#  index_users_on_email                 (email)
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_role_id               (role_id)
+#  index_users_on_uid_and_provider      (uid,provider) UNIQUE
+#  index_users_on_unlock_token          (unlock_token) UNIQUE
 #
 
 class User < ActiveRecord::Base
@@ -41,5 +49,10 @@ class User < ActiveRecord::Base
           :confirmable, :omniauthable
   include DeviseTokenAuth::Concerns::User
 
-  belongs_to :role
+  belongs_to :role, optional: true
+  has_many :note, dependent: :destroy
+
+  validates :email, uniqueness: {message: 'taken'}
+  validates :first_name, presence: true
+  validates :password, confirmation: true
 end
