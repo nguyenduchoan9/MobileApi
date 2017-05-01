@@ -3,6 +3,9 @@ module Api
     class UsersController < ApplicationController
       before_action :execute
 
+      def show
+      end
+
       def create
       end
 

@@ -53,6 +53,6 @@ class User < ActiveRecord::Base
   has_many :note, dependent: :destroy
 
   validates :email, uniqueness: {message: 'taken'}
-  validates :first_name, presence: true
+  # validates :first_name, presence: true
   validates :password, confirmation: true
 end

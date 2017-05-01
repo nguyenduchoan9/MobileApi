@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     scope module: :v1, constraints: ApiConstraint.new(version: :v1) do
     	get 'home', to: 'home#index'
-    	resources :users, only: [:create, :update]
+    	resources :users, only: [:create, :update, :show]
       resources :notes, only: [:index, :create, :show, :update, :destroy] 
     end
   end
