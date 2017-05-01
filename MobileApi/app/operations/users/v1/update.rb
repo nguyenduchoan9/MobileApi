@@ -1,19 +1,19 @@
 module Users
   module V1
-    class Create < Operation
+    class Update < Operation
+      
       require_authen!
-      require_authorize!
 
       def process
         if user.update(user_params)
-          User::Serializer.new(user)
+          Users::Serializer.new(user)
         else
           raise ValidateError.new(user.errors)
         end
 
         private
         def user
-          @user ||= User.find_by(access_token: headers.fetch(:access_token))
+          @user 
         end
 
         def user_params

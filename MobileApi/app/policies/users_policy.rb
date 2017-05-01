@@ -1,4 +1,4 @@
-class UsersPolicy < GeneralPolicy
+class UsersPolicy 
   class << self
 
     def show
