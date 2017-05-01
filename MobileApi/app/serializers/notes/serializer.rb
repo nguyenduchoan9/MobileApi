@@ -1,4 +1,4 @@
-module Users
+module Notes
   class Serializer < BaseSerializer
     attributes :id, :title, :body, :created_at, :updated_at, :status
 

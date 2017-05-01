@@ -3,7 +3,7 @@ DeviseTokenAuth.setup do |config|
   config.change_headers_on_each_request = false
   config.token_lifespan = 2.year
   config.default_confirm_success_url = '/confirm'
-  config.enable_standard_devise_support = true
+  config.enable_standard_devise_support = false
   
   # By default sending current password is not needed for the password update.
   # Uncomment to enforce current_password param to be checked before all
