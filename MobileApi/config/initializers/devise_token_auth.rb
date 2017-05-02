@@ -1,5 +1,5 @@
 DeviseTokenAuth.setup do |config|
-  config.max_number_of_devices = 10
+  config.max_number_of_devices = 20
   config.change_headers_on_each_request = false
   config.token_lifespan = 2.weeks
   config.default_confirm_success_url = '/confirm'
