@@ -44,9 +44,10 @@
 
 class User < ActiveRecord::Base
   # Include default devise modules.
-  devise :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :trackable, :validatable,
-          :confirmable, :omniauthable
+  devise :database_authenticatable, :registerable, :recoverable,
+    :rememberable, :trackable, :validatable, :omniauthable
+    # :confirmable, , :token_authenticatable
+
   include DeviseTokenAuth::Concerns::User
 
   belongs_to :role, optional: true
